@@ -3,6 +3,8 @@ import './App.css';
 import firebase from 'firebase';
 
 import Point from './components/Points/Points';
+import helloRouter from './components/Hello_router/helloRouter';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDqvgfjo0TFGcec0aIDfqo-2MoQcdimKYs",
@@ -15,10 +17,12 @@ firebase.initializeApp({
 class App extends Component {
   render() {
     return (
-      <div className="App">
-      <Point />
-        Helloworld
-      </div>
+      <BrowserRouter>
+        <div className="App">
+          <Route exact path='/' component={Point} />
+          <Route path='/about' component={helloRouter} />
+        </div>
+      </BrowserRouter>
     );
   }
 }

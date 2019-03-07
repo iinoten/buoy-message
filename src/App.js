@@ -5,6 +5,8 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 import Point from './components/Points/Points';
 import helloRouter from './components/Hello_router/helloRouter';
+import Install from './components/Install/Install';
+import Buoy from './components/Buoy/Buoy';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDqvgfjo0TFGcec0aIDfqo-2MoQcdimKYs",
@@ -17,14 +19,8 @@ firebase.initializeApp({
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <div className="App">
-          <Link to='/about'>
-            <Route exact path='/' render={() => <Point />} />
-          </Link>
-            <Route path='/about' component={helloRouter} />
-        </div>
-      </BrowserRouter>
+      <Buoy />
+      
     );
   }
 }

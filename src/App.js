@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import firebase from 'firebase';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 import Point from './components/Points/Points';
 import helloRouter from './components/Hello_router/helloRouter';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 firebase.initializeApp({
   apiKey: "AIzaSyDqvgfjo0TFGcec0aIDfqo-2MoQcdimKYs",
@@ -19,8 +19,10 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
-          <Route exact path='/' component={Point} />
-          <Route path='/about' component={helloRouter} />
+          <Link to='/about'>
+            <Route exact path='/' render={() => <Point />} />
+          </Link>
+            <Route path='/about' component={helloRouter} />
         </div>
       </BrowserRouter>
     );

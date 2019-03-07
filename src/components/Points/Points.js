@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+import Install from '../Install/Install';
+
 import './Points.css'
 
 class Points extends Component{
@@ -11,15 +13,20 @@ class Points extends Component{
         y: null
       }
     }
+    navigator.geolocation.watchPosition(this.get_position);
+
   }
   get_position = (position) => {
     console.log(position.coords)
     this.setState({
       position: {
-        x: position.coords.latitude,
-        y: position.coords.longitude
+        x: Math.round(position.coords.latitude * 100000),
+        y: Math.round(position.coords.longitude * 100000)
       }
     })
+  }
+  componentWillUnmount() {
+    
   }
   componentDidMount() {
     navigator.geolocation.watchPosition(this.get_position);
@@ -27,8 +34,9 @@ class Points extends Component{
   render(){
     return(
       <div>
-        <div>{this.state.position.x}</div>
-        <div>{this.state.position.y}</div>
+        <div>緯度{this.state.position.x}</div>
+        <div>経度{this.state.position.y}</div>
+        <Install />
       </div>
     );
   }

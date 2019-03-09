@@ -5,7 +5,6 @@ import {BrowserRouter, Route, Link} from 'react-router-dom';
 
 import Point from './components/Points/Points';
 import helloRouter from './components/Hello_router/helloRouter';
-import Install from './components/Install/Install';
 import Buoy from './components/Buoy/Buoy';
 
 firebase.initializeApp({
@@ -16,11 +15,11 @@ firebase.initializeApp({
   storageBucket: "buoy-message.appspot.com",
   messagingSenderId: "325897667671"
 });
+var db = firebase.firestore();
 class App extends Component {
   render() {
     return (
       <Buoy />
-      
     );
   }
 }

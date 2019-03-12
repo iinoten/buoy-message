@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+#textbox {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: none;
+}
+.form {
+  z-index: 100;
+  overflow: hidden;
+  background-color: #FB9191;
+  width: 85%;
+  height: 30vh;
+  border-radius: 3vw;
+
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#input_flame {
+  z-index: 1;
+  font-family: "Nico Moji";
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+
+  background-color: #fff;
+  width: 80%;
+  height: 65%;
+  word-wrap:break-word;
+  border-radius: 2vw;
+
+  position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#send_button {
+z-index: -10;
+
+  display: inline-block;
+  color: #3C3C3C;
+  background-color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: solid #F44D4D 2px;
+
+  position: absolute;
+    bottom: -1vh;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}

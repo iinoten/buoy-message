@@ -1,0 +1,14 @@
+.form-enter {
+  opacity: 0;
+}
+.form-enter-active {
+  transition: opacity 800ms ease-out;
+  opacity: 1;
+}
+.form-exit {
+  transition: opacity 800ms ease-in;
+  opacity: 1;
+}
+.form-exit-active {
+  opacity: 0;
+}

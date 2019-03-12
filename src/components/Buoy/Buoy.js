@@ -4,8 +4,8 @@ import './Buoy.css'
 import posed from 'react-pose';
 
 const props = {
-  card: { borderRadius: '2%', width: '85vw'},
-  buoy: { borderRadius: '50%', width: '55vw'}
+  card: { borderRadius: '2%', width: '310px', height:'200px'},
+  buoy: { borderRadius: '50%', width: '310px', height:'310px'}
 }
 const Box = posed.div(props);
 const Content = posed.div({

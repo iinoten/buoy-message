@@ -4,8 +4,8 @@ import './Buoy.css'
 import posed from 'react-pose';
 
 const props = {
-  card: { borderRadius: 0, width: '85%'},
-  buoy: { borderRadius: '50%', width: '55%'}
+  card: { borderRadius: '2%', width: '85vw'},
+  buoy: { borderRadius: '50%', width: '55vw'}
 }
 const Box = posed.div(props);
 const Content = posed.div({
@@ -31,7 +31,6 @@ class Buoy extends React.Component{
         this.setState({ isVisible: !this.state.isVisible });
       }
     }
-    console.log(e.target.id)
   }
   //今はとりあえず使ってない
   click_send_button_handler = () => {
@@ -62,15 +61,15 @@ class Buoy extends React.Component{
   render(){
     return(
       <div>
-        <Box className="form" onClick={this.click_buoy} pose={this.state.isVisible ? 'card' : 'buoy'}>
-        <Content id="content_form" pose={this.state.isVisible ? 'card' : 'buoy'}>
-          <div id="input_flame" onClick={this.focus_text_box}>
-            <input id="textbox" ref="message_input" value={this.state.message_text} type="text" onChange={ this.onChange_text_box } />
-            {this.state.message_text}
-          </div>
-          <button id="send_button" onClick={this.test_click_card}>ブイを浮かべる</button>
-        </Content>
-        </Box>
+          <Box className="form" onClick={this.click_buoy} pose={this.state.isVisible ? 'card' : 'buoy'}>
+          <Content id="content_form" pose={this.state.isVisible ? 'card' : 'buoy'}>
+            <div id="input_flame" onClick={this.focus_text_box}>
+              <input id="textbox" ref="message_input" value={this.state.message_text} type="text" onChange={ this.onChange_text_box } />
+              {this.state.message_text}
+            </div>
+            <button id="send_button" onClick={this.test_click_card}>ブイを浮かべる</button>
+          </Content>
+          </Box>
       </div>
     );
   }

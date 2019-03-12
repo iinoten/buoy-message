@@ -6,6 +6,10 @@ import Post from './components/Post/Post';
 
 
 class App extends Component {
+  constructor() {
+    super();
+    console.log(navigator.userAgent);
+  }
   render() {
     return (
       <Post />

@@ -16,7 +16,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Switch>
-              <Route exact path='/top' component={TopPage} />
+              <Route exact path='/' component={TopPage} />
               <Route path='/release' component={Post} />
             </Switch>
           </div>

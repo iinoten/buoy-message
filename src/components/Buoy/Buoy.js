@@ -9,12 +9,12 @@ const props = {
 }
 //フラッグ
 const Frag = posed.div({
-  card: {applyAtEnd:{ display: 'none' }, top:'40%', left:'50%',x:'0px', y:'0px', rotateZ: -125, transition: {duration:400}},
+  card: {applyAtEnd:{ display: 'none' }, top:'40%', left:'50%',x:'0px', y:'0px', rotateZ: -125, transition: {duration:200}},
   buoy: {applyAtStart:{ display: 'inline' }, top:'50%', x:'-150px', y:'-250px', rotateZ: -125, delay:300, transition: {eace: 'circIn', duration:1000}}
 })
 //フラッグの棒
 const Rod = posed.div ({
-  card: { applyAtEnd:{ display: 'none' }, height:'20px', bottom: '55%' },
+  card: { applyAtEnd:{ display: 'none' }, height:'0px', bottom: '55%' },
   buoy: { applyAtStart: { display: 'inline' }, height: '130px',bottom: '50%', delay: 300 }
 });
 const Box = posed.div(props);

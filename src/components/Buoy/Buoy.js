@@ -23,8 +23,8 @@ const Content = posed.div({
   buoy: {opacity: 0, applyAtEnd: { display: 'none' }}
 });
 const Floating = posed.div({
-  card: {top: '50%'},
-  buoy: {top: '-30%', delay: 1300, rotateZ: 30, transition: {eace: 'spling', duration:400}}
+  card: {applyAtEnd: {display: 'inline'}, top: '50%'},
+  buoy: {applyAtEnd: {display: 'none'}, top: '-30%', delay: 1300, rotateZ: 30, transition: {eace: 'spling', duration:400}}
 });
 
 class Buoy extends React.Component{

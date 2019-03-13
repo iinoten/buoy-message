@@ -7,6 +7,16 @@ const props = {
   card: { borderRadius: '2%', width: '310px', height:'200px'},
   buoy: { borderRadius: '50%', width: '310px', height:'310px'}
 }
+//フラッグ
+const Frag = posed.div({
+  card: {applyAtEnd:{ display: 'none' }, top:'40%', left:'50%',x:'0px', y:'0px', rotateZ: -125, transition: {duration:400}},
+  buoy: {applyAtStart:{ display: 'inline' }, top:'50%', x:'-150px', y:'-250px', rotateZ: -125, delay:300, transition: {eace: 'circIn', duration:1000}}
+})
+//フラッグの棒
+const Rod = posed.div ({
+  card: { applyAtEnd:{ display: 'none' }, height:'20px', bottom: '55%' },
+  buoy: { applyAtStart: { display: 'inline' }, height: '130px',bottom: '50%', delay: 300 }
+});
 const Box = posed.div(props);
 const Content = posed.div({
   card: {opacity: 1, applyAtStart: { display: 'block' }},
@@ -61,6 +71,8 @@ class Buoy extends React.Component{
   render(){
     return(
       <div>
+        <Frag id="frag" pose={this.state.isVisible ? 'card' : 'buoy'} />
+        <Rod id="rod" pose={this.state.isVisible ? 'card' : 'buoy'}></Rod>
           <Box className="form" onClick={this.click_buoy} pose={this.state.isVisible ? 'card' : 'buoy'}>
           <Content id="content_form" pose={this.state.isVisible ? 'card' : 'buoy'}>
             <div id="input_flame" onClick={this.focus_text_box}>

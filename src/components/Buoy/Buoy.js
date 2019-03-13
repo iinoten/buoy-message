@@ -11,7 +11,7 @@ const props = {
 const Frag = posed.div({
   card: {applyAtEnd:{ display: 'none' }, top:'40%', left:'50%',x:'0px', y:'0px', rotateZ: -125, transition: {duration:200}},
   buoy: {applyAtStart:{ display: 'inline' }, top:'50%', x:'-150px', y:'-250px', rotateZ: -125, delay:300, transition: {eace: 'circIn', duration:1000}}
-})
+});
 //フラッグの棒
 const Rod = posed.div ({
   card: { applyAtEnd:{ display: 'none' }, height:'0px', bottom: '55%' },
@@ -21,7 +21,11 @@ const Box = posed.div(props);
 const Content = posed.div({
   card: {opacity: 1, applyAtStart: { display: 'block' }},
   buoy: {opacity: 0, applyAtEnd: { display: 'none' }}
-})
+});
+const Floating = posed.div({
+  card: {top: '50%'},
+  buoy: {top: '-30%', delay: 1300, rotateZ: 30, transition: {eace: 'spling', duration:400}}
+});
 
 class Buoy extends React.Component{
   constructor() {
@@ -71,8 +75,9 @@ class Buoy extends React.Component{
   render(){
     return(
       <div>
-        <Frag id="frag" pose={this.state.isVisible ? 'card' : 'buoy'} />
-        <Rod id="rod" pose={this.state.isVisible ? 'card' : 'buoy'}></Rod>
+        <Floating id="floating" pose={this.state.isVisible ? 'card' : 'buoy'}>
+          <Frag id="frag" pose={this.state.isVisible ? 'card' : 'buoy'} />
+          <Rod id="rod" pose={this.state.isVisible ? 'card' : 'buoy'}></Rod>
           <Box className="form" onClick={this.click_buoy} pose={this.state.isVisible ? 'card' : 'buoy'}>
           <Content id="content_form" pose={this.state.isVisible ? 'card' : 'buoy'}>
             <div id="input_flame" onClick={this.focus_text_box}>
@@ -82,6 +87,7 @@ class Buoy extends React.Component{
             <button id="send_button" onClick={this.test_click_card}>ブイを浮かべる</button>
           </Content>
           </Box>
+        </Floating>
       </div>
     );
   }

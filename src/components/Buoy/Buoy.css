@@ -108,3 +108,17 @@ z-index: -10;
     translateX(0%)
     translateY(0%)
 }
+#floating {
+  position: absolute;
+  left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}

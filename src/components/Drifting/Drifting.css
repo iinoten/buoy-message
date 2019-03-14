@@ -35,7 +35,7 @@
   height: 80px;
   width: 80px;
 
-  background-color: #FE5D26;
+  background-color: #f99e7f;
   border-radius: 50%;
 }
 
@@ -43,25 +43,26 @@
   background-color: #f99e7f;
   height: 200px;
   width: 310px;
-  border-radius: 2%;
+  border-radius: 10px;
 
   position: fixed;
   top: 50%;
   left: 50%;
-    transform: 
+  transform: 
+    translateY(-50%)
+    translateX(-50%);
+  /*webkitに対応*/
+    -webkit-transform: 
       translateY(-50%)
       translateX(-50%);
-    /*webkitに対応*/
-      -webkit-transform: 
-        translateY(-50%)
-        translateX(-50%);
-      -ms-transform: 
-        translateY(-50%)
-        translateX(-50%);
+    -ms-transform: 
+      translateY(-50%)
+      translateX(-50%);
 }
 #content-box {
   height: 140px;
   width: 280px;
+  border-radius: 4px;
 
   font-family: "Nico Moji";
   font-size: 1.5em;

@@ -7,7 +7,7 @@ class Level extends Component{
   render(){
     return(
       <div id="Level">
-        <Drifting message="HelloBuoy!" />
+        <Drifting message="HelloBuoy!"  left={30 + "px"} />
       </div>
     );
   }

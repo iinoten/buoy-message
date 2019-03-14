@@ -39,7 +39,7 @@ class Drifting extends Component{
             <div id="Message-rod"></div><div id="Message-frag"></div>
             <div id="content-box">{this.props.message}</div>
           </Box>
-        <Buoy id="Drifting" onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
+        <Buoy id="Drifting" style={{left:this.props.left}} onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
           <div id="Drifting-rod" />
           <div id="Drifting-frag" />
           <div id="baloon" />

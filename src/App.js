@@ -13,14 +13,7 @@ class App extends Component {
   render() {
     return (
       <div id="App">
-        <BrowserRouter>
-          <div>
-            <Switch>
-              <Route exact path='/' component={TopPage} />
-              <Route path='/release' component={Post} />
-            </Switch>
-          </div>
-        </BrowserRouter>
+        <Post />
       </div>
     );
   }

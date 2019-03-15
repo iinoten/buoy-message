@@ -48,7 +48,10 @@ class Buoy extends React.Component{
   }
   //今はとりあえず使ってない
   click_send_button_handler = () => {
-    this.props.send_data(this.state.message_text);
+    if(this.state.message_text){
+      this.setState({ isVisible: !this.state.isVisible });
+      this.props.send_data(this.state.message_text);
+    }
   }
   onChange_text_box = (e) => {
     const box_limit_text_length = 45;
@@ -84,7 +87,7 @@ class Buoy extends React.Component{
               <input id="textbox" ref="message_input" value={this.state.message_text} type="text" onChange={ this.onChange_text_box } />
               {this.state.message_text}
             </div>
-            <button id="send_button" onClick={this.test_click_card}>ブイを浮かべる</button>
+            <button id="send_button" onClick={this.click_send_button_handler}>ブイを浮かべる</button>
           </Content>
           </Box>
         </Floating>

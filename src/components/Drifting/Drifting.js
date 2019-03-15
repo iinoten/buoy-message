@@ -34,8 +34,7 @@ class Drifting extends Component{
   render(){
     return(
       <div>
-        <div id="background" onClick={this.click_background_handler}></div>
-          <Box id="message-box" pose={this.state.is_pick_up ? 'card' : 'buoy'}>
+          <Box id="message-box" onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
             <div id="Message-rod"></div><div id="Message-frag"></div>
             <div id="content-box">{this.props.message}</div>
           </Box>

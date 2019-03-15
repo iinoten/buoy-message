@@ -11,7 +11,7 @@ class Level extends Component{
   constructor() {
     super();
     this.state = {
-      buoys: null,  //浮かせるブイ達
+      buoys: [],  //浮かせるブイ達
       position: {
         x: null,
         y: null
@@ -20,19 +20,26 @@ class Level extends Component{
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
-    console.log(position);
     this.setState({
       position: {
         x: Math.round(position.coords.latitude * 100000),
         y: Math.round(position.coords.longitude * 100000)
-      }
+      },
+      buoys: []
     })
-    console.log(this.state.position);
-    db.collection("buoys").where("position.latitude", "<", this.state.position.x + 200).where("position.latitude", ">", this.state.position.y - 200)
+    db.collection("buoys").where("position.latitude", "<", this.state.position.x + 200).where("position.latitude", ">", this.state.position.x - 200)
       .get()
       .then((query_snapshot) => {
+        console.log(query_snapshot.docs.length);
+        var count = 0;
         query_snapshot.forEach((doc) => {
-          console.log(doc.id,"and...",doc.data().message);
+          count ++;
+          console.log(count);
+          this.setState({
+            buoys: update(this.state.buoys,{
+              $push:[<Drifting message={doc.data().message} left={(100 * count) + "px" }/>]
+            })
+          })
         })
       })
   }
@@ -42,7 +49,9 @@ class Level extends Component{
   render(){
     return(
       <div id="Level">
-        <Drifting message="HelloBuoy!"  left={30 + "px"} />
+        {this.state.buoys.map((item, i) =>
+          <React.Fragment key={i}>{item}</React.Fragment>
+        )}
       </div>
     );
   }

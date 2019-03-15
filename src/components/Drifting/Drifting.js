@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import posed from 'react-pose';
 
 import './Drifting.css'
+
 const Box = posed.div({
   card: {opacity:1, y: "-50%", x: "-50%", delay: 150, applyAtEnd: {display: 'inline'}},
   buoy: {opacity:0, y:-500, x: "-50%", applyAtEnd: {display: 'inline'}}
@@ -24,7 +25,7 @@ class Drifting extends Component{
     });
   }
   click_background_handler = (e) => {
-    if( !(e.target.id === "content-box") || !(e.target.id === "content-box") ) {
+    if( ( !(e.target.id === "content-box") || !(e.target.id === "content-box") ) && this.state.is_pick_up ) {
       this.setState({
         is_pick_up: !this.state.is_pick_up
       })
@@ -33,12 +34,11 @@ class Drifting extends Component{
   render(){
     return(
       <div>
-        <div id="background" onClick={this.click_background_handler}>
-          <Box id="message-box" pose={this.state.is_pick_up ? 'card' : 'buoy'}>
+          <Box id="message-box" onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
+            <div id="Message-rod"></div><div id="Message-frag"></div>
             <div id="content-box">{this.props.message}</div>
           </Box>
-        </div>
-        <Buoy id="Drifting" onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
+        <Buoy id="Drifting" style={{left:this.props.left}} onClick={this.open_buoy_message} pose={this.state.is_pick_up ? 'card' : 'buoy'}>
           <div id="Drifting-rod" />
           <div id="Drifting-frag" />
           <div id="baloon" />

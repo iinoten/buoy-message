@@ -1,0 +1,17 @@
+html,body {
+  height: 100%;
+  z-index: -100;
+}
+
+body:after {/*擬似要素をつくる*/
+  z-index: -100;
+  position: fixed;/*固定配置*/
+  top: 0; left: 0;/*左上に固定*/
+  width: 100%; height: 100%;/*画面全体を覆う*/
+  content: "";
+  background: #81D2C7;/*保険用*/
+    background: -moz-linear-gradient(top, #E0E0E2 62%,#81D2C7 60%);/*古いFireFox向け*/
+  background: -webkit-linear-gradient(top, #E0E0E2 62%,#81D2C7 68%);/*古いSafari・Chrome向け*/
+  background: linear-gradient(to bottom, #E0E0E2 62%, #81D2C7 68%);/*正規のプロパティ*/
+}
+

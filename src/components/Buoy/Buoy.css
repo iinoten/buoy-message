@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+#textbox {
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: none;
+}
+.form {
+  z-index: 100;
+  overflow: hidden;
+  background-color: #FE5D26;
+  width: 85%;
+  height: 30vh;
+  border-radius: 3vw;
+
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#input_flame {
+  z-index: 1;
+  font-family: "Nico Moji";
+  font-size: 1.5em;
+  text-align: center;
+  vertical-align: middle;
+
+  background-color: #fff;
+  width: 80%;
+  height: 65%;
+  word-wrap:break-word;
+  border-radius: 2vw;
+
+  position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#send_button {
+z-index: -10;
+
+  display: inline-block;
+  color: #3C3C3C;
+  background-color: #fff;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: solid #FE5D26 2px;
+
+  position: absolute;
+    bottom: -1vh;
+    left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#rod {
+  background-color: #3C3C3C;
+  width: 20px;
+  height: 160px;
+  
+
+  position: absolute;
+  bottom: 50%;
+  left: 50%; 
+  transform: 
+      translateY(-70%)
+      translateX(-700%)
+      rotateZ(-35deg);
+}
+#frag {
+  position: absolute;
+
+  width: 0px;
+  z-index: -5;
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 100px solid #FE5D26;
+
+  top: 50%;
+  left: 50%;
+  transform: 
+    rotateZ(-125deg)
+    translateX(0%)
+    translateY(0%)
+}
+#floating {
+  position: fixed;
+  left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}

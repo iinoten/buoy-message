@@ -4,7 +4,7 @@ import posed from 'react-pose'
 
 import Buoy from '../Buoy/Buoy';
 import './Post.css'
-import firebase from '../../Firebase.js';
+import firebase from 'firebase';
 
 var db = firebase.firestore();
 class Post extends Component{
@@ -43,6 +43,10 @@ class Post extends Component{
         longitude: this.state.position.y
       },
       timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    }).then(() => {
+        console.log("success post date")
+      }).catch((error)=>{
+        console.log("failed post data:",error)
     })
   }
   render(){

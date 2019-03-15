@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Drifting from '../Drifting/Drifting';
 import './Level.css'
-import firebase from 'firebase'
+import firebase from '../../Firebase.js'
 
 import update from 'immutability-helper';
 var db = firebase.firestore();
@@ -20,6 +20,8 @@ class Level extends Component{
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
+    console.log("called get_position method")
+    this.reset_state();
     this.setState({
       position: {
         x: Math.round(position.coords.latitude * 100000),
@@ -27,14 +29,13 @@ class Level extends Component{
       },
       buoys: []
     })
-    db.collection("buoys").where("position.latitude", "<", this.state.position.x + 200).where("position.latitude", ">", this.state.position.x - 200)
+    db.collection("buoys").where("position.latitude", "<", position.coords.latitude * 100000 + 20).where("position.latitude", ">", position.coords.latitude * 100000 - 20)
       .get()
       .then((query_snapshot) => {
-        console.log(query_snapshot.docs.length);
         var count = 0;
         query_snapshot.forEach((doc) => {
+          console.log(this.state.position.x,"and",doc.data().position.latitude);
           count ++;
-          console.log(count);
           this.setState({
             buoys: update(this.state.buoys,{
               $push:[<Drifting message={doc.data().message} left={(100 * count) + "px" }/>]
@@ -42,6 +43,11 @@ class Level extends Component{
           })
         })
       })
+  }
+  reset_state = () => {
+    this.setState({
+      buoys: []
+    });
   }
   componentDidMount(){
     navigator.geolocation.watchPosition(this.get_position);

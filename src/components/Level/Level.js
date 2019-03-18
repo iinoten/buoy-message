@@ -20,6 +20,7 @@ class Level extends Component{
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
+    console.log(window.screen.width);
     console.log("called get_position method")
     this.reset_state();
     this.setState({
@@ -31,17 +32,16 @@ class Level extends Component{
     })
     db.collection("buoys").where("position.latitude", "<", position.coords.latitude * 100000 + 20).where("position.latitude", ">", position.coords.latitude * 100000 - 20)
       .get()
-      .then((query_snapshot) => {
+      .then((query_snapshot) => {        
+        const between_with_buoys = window.screen.width / query_snapshot.docs.length
         var count = 0;
+        var view_component = [];
         query_snapshot.forEach((doc) => {
+          view_component.push(<Drifting message={doc.data().message} left={(between_with_buoys * count) + "px" }/>);
           console.log(this.state.position.x,"and",doc.data().position.latitude);
           count ++;
-          this.setState({
-            buoys: update(this.state.buoys,{
-              $push:[<Drifting message={doc.data().message} left={(100 * count) + "px" }/>]
-            })
-          })
         })
+        this.setState({buoys: view_component});
       })
   }
   reset_state = () => {

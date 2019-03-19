@@ -55,7 +55,7 @@ class Post extends Component{
     return(
       <div>
           <Buoy send_data={this.post_to_db}/>
-          <div id="transition-top-page" onClick={this.handle_to_post_page}><div id="induction-message-post">ブイをうかべる</div></div>
+          <div id="transition-top-page" onClick={this.handle_to_post_page}><div id="induction-message-post">ブイをさがす</div></div>
       </div>
 
     );

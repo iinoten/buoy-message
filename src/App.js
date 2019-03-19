@@ -12,9 +12,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div id="App">
-        <TopPage />
-      </div>
+      <BrowserRouter>
+        <div>
+          <Switch>
+            <Route exact path={'/'} component={TopPage} />
+            <Route path={'/send'} component={Post} />
+          </Switch>
+        </div>
+      </BrowserRouter>
     );
   }
 }

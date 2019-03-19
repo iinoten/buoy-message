@@ -13,8 +13,8 @@ class Level extends Component{
     this.state = {
       buoys: [],  //浮かせるブイ達
       position: {
-        x: null,
-        y: null
+        x: 0,
+        y: 0
       }
     }
     navigator.geolocation.watchPosition(this.get_position);

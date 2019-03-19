@@ -12,7 +12,7 @@ class TopPage extends Component{
       <div>
         <div id="buoy-title">buoy</div>
         <Level />
-        <div id="transition-post-page" onClick={this.handle_to_post_page}><div id="induction-message">ブイをうかべる</div></div>
+        <div id="transition-post-page" onClick={this.handle_to_post_page}><div id="induction-message-post">ブイをうかべる</div></div>
       </div>
     );
   }

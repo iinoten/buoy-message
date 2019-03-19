@@ -20,7 +20,7 @@ class Level extends Component{
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
-    this.reset_state();
+    console.log(this.state.position)
     this.setState({
       position: {
         latitude: Math.round(position.coords.latitude * 100000),
@@ -46,11 +46,6 @@ class Level extends Component{
           this.setState({buoys: view_component});
         }
       })
-  }
-  reset_state = () => {
-    this.setState({
-      buoys: []
-    });
   }
   componentDidMount(){
     navigator.geolocation.watchPosition(this.get_position);

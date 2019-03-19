@@ -37,9 +37,11 @@ class Level extends Component{
         var count = 0;
         var view_component = [];
         query_snapshot.forEach((doc) => {
-          view_component.push(<Drifting message={doc.data().message} left={(between_with_buoys * count) + "px" }/>);
-          console.log(this.state.position.x,"and",doc.data().position.latitude);
-          count ++;
+          if( (doc.data().position.longitude < position.coords.longitude * 100000 + 20) && (doc.data().position.longitude > position.coords.longitude * 100000 - 20) ) {
+            view_component.push(<Drifting message={doc.data().message} left={(between_with_buoys * count) + "px" }/>);
+            console.log(this.state.position.x,"and",doc.data().position.latitude);
+            count ++;
+          }
         })
         this.setState({buoys: view_component});
       })

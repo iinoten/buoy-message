@@ -42,7 +42,8 @@ class Level extends Component{
             count ++;
           }
         })
-        if(!(this.state.buoys === view_component)) {
+        if(this.state.buoys !== view_component) {
+          console.log(this.state.buoys , view_component)
           this.setState({buoys: view_component});
         }
       })

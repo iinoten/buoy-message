@@ -1,6 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan');
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+
 html,body {
   height: 100%;
   z-index: -100;
+}
+
+#buoy-title {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 24vw;
+  text-align: center;
+  height: 20%;
+  margin-top: 80px;
+  color: #36558F;
 }
 
 body:after {/*擬似要素をつくる*/
@@ -15,3 +27,20 @@ body:after {/*擬似要素をつくる*/
   background: linear-gradient(to bottom, #E0E0E2 62%, #81D2C7 68%);/*正規のプロパティ*/
 }
 
+#transition-post-page {
+  position: fixed;
+  background-color: #fe5d26;
+  height: 200px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 50% / 25%;
+  transform: translateY(160px);
+
+  font-family: "Nico Moji";
+  text-align: center;
+}
+#induction-message{
+  margin-top: 10px;
+  color: #fff;
+  font-size: 1.5em;
+}

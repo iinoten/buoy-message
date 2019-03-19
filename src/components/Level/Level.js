@@ -20,13 +20,11 @@ class Level extends Component{
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
-    console.log(window.screen.width);
-    console.log("called get_position method")
     this.reset_state();
     this.setState({
       position: {
-        latitude: Math.round(position.coords.latitude * 1000000),
-        longitude: Math.round(position.coords.longitude * 1000000)
+        latitude: Math.round(position.coords.latitude * 100000),
+        longitude: Math.round(position.coords.longitude * 100000)
       },
       buoys: []
     })

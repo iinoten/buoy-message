@@ -1,0 +1,84 @@
+html, body {
+  overflow: hidden;
+}
+#induction-buoy {
+  background-color: #fe5d26;
+  width: 40vmin;
+  height: 40vmin;
+  position: absolute;
+  border-radius: 50%;
+  top: 70vmin;
+  left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#induction_QR_code {
+  position: absolute;
+  width: 30vmin;
+  height: 30vmin;
+  border-radius: 5vmin;
+  top: 20vmin;
+  left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan');
+#induction-title {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 15vmin;
+  text-align: center;
+  height: 10%;
+  margin-top: 60px;
+  color: #36558F;
+}
+@import url('https://fonts.googleapis.com/earlyaccess/nicomoji.css');
+#induction-subtitle {
+  font-family: "Nico Moji";
+    font-size: 4vmin;
+    text-align: center;
+    height: 10%;
+    margin-top: 30px;
+    color: #36558F;
+}
+#description-induction {
+  font-family: "Nico Moji";
+    font-size: 4vmin;
+    text-align: center;
+    height: 10%;
+    margin-top: 30px;
+    color: #36558F;
+
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+    transform: 
+      translateY(-50%)
+      translateX(-50%);
+    /*webkitに対応*/
+      -webkit-transform: 
+        translateY(-50%)
+        translateX(-50%);
+      -ms-transform: 
+        translateY(-50%)
+        translateX(-50%);
+}
+#description-induction span {
+  letter-spacing: -0.0em;
+  font-weight: 1000;
+}

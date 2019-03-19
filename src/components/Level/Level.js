@@ -25,19 +25,20 @@ class Level extends Component{
     this.reset_state();
     this.setState({
       position: {
-        x: Math.round(position.coords.latitude * 100000),
-        y: Math.round(position.coords.longitude * 100000)
+        latitude: Math.round(position.coords.latitude * 1000000),
+        longitude: Math.round(position.coords.longitude * 1000000)
       },
       buoys: []
     })
-    db.collection("buoys").where("position.latitude", "<", position.coords.latitude * 100000 + 20).where("position.latitude", ">", position.coords.latitude * 100000 - 20)
+    db.collection("buoys").where("position.latitude", "<", this.state.position.latitude + 20).where("position.latitude", ">", this.state.position.latitude - 20)
       .get()
       .then((query_snapshot) => {        
         const between_with_buoys = window.screen.width / query_snapshot.docs.length
         var count = 0;
         var view_component = [];
         query_snapshot.forEach((doc) => {
-          if( (doc.data().position.longitude < position.coords.longitude * 100000 + 20) && (doc.data().position.longitude > position.coords.longitude * 100000 - 20) ) {
+          console.log( doc.data().position.longitude , this.state.position.longitude + 20,"and",doc.data().position.longitude , this.state.position.longitude- 20);
+          if( (doc.data().position.longitude < this.state.position.longitude + 20) && (doc.data().position.longitude > this.state.position.longitude - 20) ) {
             view_component.push(<Drifting message={doc.data().message} left={(between_with_buoys * count) + "px" }/>);
             console.log(this.state.position.x,"and",doc.data().position.latitude);
             count ++;

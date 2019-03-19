@@ -12,3 +12,20 @@
 .form-exit-active {
   opacity: 0;
 }
+#transition-top-page {
+  position: fixed;
+  background-color: #fe5d26;
+  height: 200px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 50% / 25%;
+  transform: translateY(160px);
+
+  font-family: "Nico Moji";
+  text-align: center;
+}
+#induction-message-post{
+  margin-top: 10px;
+  color: #fff;
+  font-size: 1.5em;
+}

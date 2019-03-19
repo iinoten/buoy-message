@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import Drifting from '../Drifting/Drifting';
 import './Level.css'
-import firebase from 'firebase'
+import firebase from '../../Firebase.js'
 
 import update from 'immutability-helper';
 var db = firebase.firestore();
@@ -13,34 +13,39 @@ class Level extends Component{
     this.state = {
       buoys: [],  //浮かせるブイ達
       position: {
-        x: null,
-        y: null
+        latitude: 0,
+        longitude: 0
       }
     }
     navigator.geolocation.watchPosition(this.get_position);
   }
   get_position = (position) => {
+    console.log(this.state.position)
     this.setState({
       position: {
-        x: Math.round(position.coords.latitude * 100000),
-        y: Math.round(position.coords.longitude * 100000)
+        latitude: Math.round(position.coords.latitude * 100000),
+        longitude: Math.round(position.coords.longitude * 100000)
       },
       buoys: []
     })
-    db.collection("buoys").where("position.latitude", "<", this.state.position.x + 200).where("position.latitude", ">", this.state.position.x - 200)
+    db.collection("buoys").where("position.latitude", "<", this.state.position.latitude + 20).where("position.latitude", ">", this.state.position.latitude - 20)
       .get()
-      .then((query_snapshot) => {
-        console.log(query_snapshot.docs.length);
+      .then((query_snapshot) => {        
+        const between_with_buoys = window.screen.width / query_snapshot.docs.length
         var count = 0;
+        var view_component = [];
         query_snapshot.forEach((doc) => {
-          count ++;
-          console.log(count);
-          this.setState({
-            buoys: update(this.state.buoys,{
-              $push:[<Drifting message={doc.data().message} left={(100 * count) + "px" }/>]
-            })
-          })
+          console.log( doc.data().position.longitude , this.state.position.longitude + 20,"and",doc.data().position.longitude , this.state.position.longitude- 20);
+          if( (doc.data().position.longitude < this.state.position.longitude + 20) && (doc.data().position.longitude > this.state.position.longitude - 20) ) {
+            view_component.push(<Drifting message={doc.data().message} left={(between_with_buoys * count) + "px" }/>);
+            console.log(this.state.position.x,"and",doc.data().position.latitude);
+            count ++;
+          }
         })
+        if(this.state.buoys !== view_component) {
+          console.log(this.state.buoys , view_component)
+          this.setState({buoys: view_component});
+        }
       })
   }
   componentDidMount(){

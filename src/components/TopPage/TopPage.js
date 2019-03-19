@@ -7,6 +7,7 @@ class TopPage extends Component{
   render(){
     return(
       <div>
+        <div id="buoy-title">buoy</div>
         <Level />
       </div>
     );

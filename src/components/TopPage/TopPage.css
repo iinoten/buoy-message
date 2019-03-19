@@ -1,6 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Chettan');
+
 html,body {
   height: 100%;
   z-index: -100;
+}
+
+#buoy-title {
+  font-family: 'Baloo Chettan', cursive;
+  font-size: 24vw;
+  text-align: center;
+  height: 20%;
+  margin-top: 80px;
+  color: #36558F;
 }
 
 body:after {/*擬似要素をつくる*/
